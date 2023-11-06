@@ -124,20 +124,28 @@ body {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   height: 60px;
+  padding: 0 20px;
   border-bottom: 1px solid #f0f0f0;
   background: #ffffff;
 
   color: #17c4cf;
 }
 .Header-wrap {
-  width: 520px;
-  height: 100%;
   display: flex;
   align-items: center;
+  width: 520px;
+  height: 100%;
   margin: 0 auto;
 }
 .Header .menu-btn {
   margin-right: 10px;
+  border: none;
+  background: none;
+  color: #17c4cf;
+  cursor: pointer;
+}
+.Header .menu-prev-btn {
+  font-size: 1.25rem;
 }
 /* Home */
 /* 비주얼 */
@@ -154,7 +162,8 @@ body {
   margin-bottom: 20px;
 }
 
-.recommend-item-wrap {
+.recommend-item-wrap,
+.compare-item-wrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -165,6 +174,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 .recommend-item-top {
   margin-bottom: 10px;
@@ -291,7 +301,8 @@ body {
 }
 .input-label {
   font-size: 0.75rem;
-  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .input-birth-wrap {
   display: flex;
@@ -305,11 +316,13 @@ body {
 }
 .input-name {
   flex-grow: 1;
+  margin: 10px;
 }
 .input-birth {
   width: 120px;
   flex-grow: 1;
   width: 10px;
+  margin: 10px;
 }
 .input-gender {
   display: none;
@@ -321,6 +334,7 @@ body {
 
 .input-gender + label {
   padding: 15px;
+  margin: 10px;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   cursor: pointer;
@@ -346,7 +360,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   overflow-x: hidden;
 }
 .check-healthtype-wrap::-webkit-scrollbar {
@@ -357,16 +371,15 @@ body {
 }
 .check-input + label {
   padding: 20px;
-  margin-bottom: 10px;
+  margin: 10px;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   cursor: pointer;
 }
 .check-healthtype + label {
-  width: 110px;
+  width: 90px;
   flex-grow: 1;
 }
-
 .check-input + label .check-icon {
   color: #d9d9d9;
   font-size: 1rem;
@@ -401,7 +414,9 @@ body {
 }
 
 .check-answer + label {
+  margin: 10px;
   width: 190px;
+  box-sizing: border-box;
   flex-grow: 1;
 }
 
@@ -410,7 +425,7 @@ body {
 }
 .more-check-answer-content-wrap {
   width: 100%;
-  height: calc(100vh % 30);
+  /* height: calc(100vh / 30); */
   /* background-color: pink; */
   overflow-y: scroll;
   overflow-x: hidden;
@@ -450,6 +465,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .more-check-answer {
   display: none;
@@ -458,8 +474,9 @@ body {
   display: flex;
   flex-grow: 1;
   width: 190px;
+  box-sizing: border-box;
   padding: 10px 20px;
-  margin-bottom: 10px;
+  margin: 5px;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
 }
@@ -473,4 +490,45 @@ body {
 
 .more-check-answer:checked + label .more-check-answer-icon {
   color: #17c4cf;
+}
+
+/* compareItem */
+.compare-content {
+  height: calc(100vh - 160px);
+  width: 100%;
+  margin-top: 40px;
+  position: relative;
+  box-sizing: border-box;
+}
+.compare-title {
+  margin-bottom: 20px;
+}
+
+.compare-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.compare-item {
+  width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  box-sizing: border-box;
+  padding: 30px 30px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.compare-item-add-btn {
+  border: 3px dotted #d9d9d9;
+  font-size: 5rem;
+  color: #d9d9d9;
+}
+
+.compare-list-item.selected {
+  border-radius: 10px;
+  background-color: #f2f2f2;
 }

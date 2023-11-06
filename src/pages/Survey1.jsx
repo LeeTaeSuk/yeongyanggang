@@ -1,27 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import SurveyTitle from "../components/SurveyTitle";
+import { UserDispatchContext } from "../App";
+
+let yearList = [];
+let year = {};
+let monthList = [];
+let month = {};
+let dayList = [];
+let day = {};
+
+for (let i = 1950; i <= 2023; i++) {
+  year.value = i;
+  year.name = i;
+  yearList.push({ ...year });
+}
+
+for (let i = 1; i <= 12; i++) {
+  month.value = i;
+  month.name = i;
+  monthList.push({ ...month });
+}
+
+for (let i = 1; i <= 31; i++) {
+  day.value = i;
+  day.name = i;
+  dayList.push({ ...day });
+}
+
+const ControlMenu = ({ value, optionList, onChange }) => {
+  return (
+    <select
+      className="input-text input-birth"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
+      {optionList &&
+        optionList.map((it, idx) => (
+          <option key={idx} value={it.value}>
+            {it.name}
+          </option>
+        ))}
+    </select>
+  );
+};
 
 const Survey1 = () => {
-  const [name, setName] = useState();
-  const [birthYear, setBirthYear] = useState();
-  const [birthMonth, setBirthMonth] = useState();
-  const [birthDay, setBirthDay] = useState();
-  const [gender, setGender] = useState();
+  const [name, setName] = useState("");
+  const [birthYear, setBirthYear] = useState("");
+  const [birthMonth, setBirthMonth] = useState("");
+  const [birthDay, setBirthDay] = useState("");
+  const [gender, setGender] = useState("");
 
+  const { onUserCreate } = useContext(UserDispatchContext);
   const navigate = useNavigate();
 
-  const onClick = () => {
-    if (birthYear && birthMonth && gender) navigate("/survey2");
+  const handleUserData = () => {
+    if (birthYear && birthMonth && gender) {
+      onUserCreate(name, birthYear, birthMonth, birthDay, gender);
+      navigate("/survey2");
+    }
   };
-
-  console.log("이름 " + name);
-  console.log(
-    "생일 " + birthYear + "년 " + birthMonth + "월 " + birthDay + "일 "
-  );
-  console.log("성별 " + gender);
 
   return (
     <div className="Survey">
@@ -46,23 +87,20 @@ const Survey1 = () => {
           <div className="input-wrap">
             <label className="input-label">생년월일</label>
             <div className="input-birth-wrap">
-              <input
-                type="text"
-                className="input-text input-birth"
+              <ControlMenu
                 value={birthYear}
-                onChange={(e) => setBirthYear(e.target.value)}
+                optionList={yearList}
+                onChange={setBirthYear}
               />
-              <input
-                type="text"
-                className="input-text input-birth"
+              <ControlMenu
                 value={birthMonth}
-                onChange={(e) => setBirthMonth(e.target.value)}
+                optionList={monthList}
+                onChange={setBirthMonth}
               />
-              <input
-                type="text"
-                className="input-text input-birth"
+              <ControlMenu
                 value={birthDay}
-                onChange={(e) => setBirthDay(e.target.value)}
+                optionList={dayList}
+                onChange={setBirthDay}
               />
             </div>
           </div>
@@ -93,7 +131,7 @@ const Survey1 = () => {
             text={"다음으로"}
             type={"survey"}
             state={birthYear && birthMonth && gender ? "active" : "disabled"}
-            onClick={onClick}
+            onClick={handleUserData}
           />
         </div>
       </section>
