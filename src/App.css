@@ -1,0 +1,476 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 1100px;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.left-wrapper {
+  width: 400px;
+  height: 100%;
+}
+
+.right-wrapper {
+  width: 520px;
+  height: 100vh;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.right-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .right-wrapper {
+    width: 520px;
+  }
+}
+
+@media (max-width: 1099px) {
+  .App {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .left-wrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 519px) {
+  .right-wrapper {
+    width: 100vw;
+  }
+  .Header-wrap {
+    width: 100%;
+  }
+  .recommend-wrap {
+    width: 100%;
+  }
+  .banner-wrap {
+    width: 100%;
+  }
+}
+/* 공통 */
+.h1-title {
+  margin-bottom: 20px;
+  color: #051929;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-weight: 900;
+}
+.h3-title {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+/* Title */
+.title-wrap {
+  width: 100%;
+  color: #17c4cf;
+}
+.title-wrap .sub-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.title-wrap .main-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+.line {
+  width: 2px;
+  height: 100px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: #17c4cf;
+}
+
+.service-des-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  font-weight: 900;
+  line-height: 1.6;
+}
+/* Header */
+.Header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 60px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #ffffff;
+
+  color: #17c4cf;
+}
+.Header-wrap {
+  width: 520px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+.Header .menu-btn {
+  margin-right: 10px;
+}
+/* Home */
+/* 비주얼 */
+.visual-wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 180px;
+  margin-bottom: 30px;
+  background-color: rgb(211, 211, 211);
+}
+
+/* 추천 */
+.recommend-wrap {
+  margin-bottom: 20px;
+}
+
+.recommend-item-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.recommend-item {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recommend-item-top {
+  margin-bottom: 10px;
+}
+.recommend-item-top img {
+  border-radius: 10px;
+}
+.recommend-item-bottom {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.recommend-item-bottom .item-brand {
+  margin-bottom: 5px;
+  color: #676767;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.recommend-item-bottom .item-name {
+  color: #051929;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* 배너 */
+.banner-wrap {
+  margin-bottom: 50px;
+}
+.banner-item-wrap {
+  display: flex;
+}
+.banner-item {
+  padding: 20px;
+  height: 120px;
+  border-radius: 10px;
+}
+.banner-wrap h3 {
+  color: #fff;
+  text-decoration: none;
+}
+.banner-wrap p {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #fff;
+}
+.banner-left-wrap {
+  flex-grow: 2;
+  background: #17c4cf;
+  margin-right: 20px;
+}
+
+.banner-right-wrap {
+  flex-grow: 1;
+  background: #17cf74;
+}
+
+/* button */
+.button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+/* surveyTitle */
+.survey-process {
+  margin-bottom: 20px;
+  color: #d9d9d9;
+}
+.survey-process-active {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #17c4cf;
+}
+
+/* survey */
+.right-wrapper-survey {
+}
+.survey-content {
+  height: calc(100vh - 160px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* justify-content: space-between; */
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+
+.survey-img {
+  width: 100%;
+  height: 250px;
+  background-image: url(images/surveyImg.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.Button {
+  position: absolute;
+  bottom: -5vh;
+  width: 100%;
+}
+.survey-button {
+  width: 100%;
+  color: white;
+  bottom: 20px;
+}
+
+.survey-button-active {
+  background-color: #17c4cf;
+}
+.survey-button-disabled {
+  background-color: #d9d9d9;
+}
+/* survey1 */
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.input-label {
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
+.input-birth-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.input-text {
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+.input-name {
+  flex-grow: 1;
+}
+.input-birth {
+  width: 120px;
+  flex-grow: 1;
+  width: 10px;
+}
+.input-gender {
+  display: none;
+}
+.input-gender-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-gender + label {
+  padding: 15px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 50%;
+}
+.input-gender:checked + label {
+  border: 1px solid #17c4cf;
+}
+
+/* survey2 */
+.survey-process-des {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.survey-process-des-active {
+  display: inline-block;
+  color: #17c4cf;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.check-disease-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.check-healthtype-wrap::-webkit-scrollbar {
+  display: none;
+}
+.check-input {
+  display: none;
+}
+.check-input + label {
+  padding: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.check-healthtype + label {
+  width: 110px;
+  flex-grow: 1;
+}
+
+.check-input + label .check-icon {
+  color: #d9d9d9;
+  font-size: 1rem;
+}
+.check-input + label .check-input-bottom {
+  /* background-color: #17cf74;/ */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.check-input + label .check-input-bottom .check-img {
+  font-size: 1.5rem;
+}
+.check-input + label .check-input-bottom .check-des {
+  font-size: 1rem;
+  font-weight: 900;
+}
+.check-input:checked + label {
+  border: 1px solid #17c4cf;
+}
+
+.check-input:checked + label .check-icon {
+  color: #17c4cf;
+}
+
+/* survey3 */
+.check-answer-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.check-answer + label {
+  width: 190px;
+  flex-grow: 1;
+}
+
+/* survey4 */
+.check-answer-wrap {
+}
+.more-check-answer-content-wrap {
+  width: 100%;
+  height: calc(100vh % 30);
+  /* background-color: pink; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.more-check-answer-content-wrap::-webkit-scrollbar {
+  display: none;
+}
+.survey-line-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.survey-line {
+  height: 1px;
+  width: 35%;
+  background-color: #d9d9d9;
+}
+.survey-line-icon {
+  font-size: 2rem;
+  color: #d9d9d9;
+}
+.more-check-prompt-btn {
+  margin-top: 15px;
+  border: none;
+  color: #d9d9d9;
+  background: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.more-check-prompt-btn:hover {
+  color: #17c4cf;
+}
+.more-check-answer-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.more-check-answer {
+  display: none;
+}
+.more-check-answer + label {
+  display: flex;
+  flex-grow: 1;
+  width: 190px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+.more-check-answer:checked + label {
+  border: 1px solid #17c4cf;
+}
+.more-check-answer-icon {
+  color: #d9d9d9;
+  margin-right: 10px;
+}
+
+.more-check-answer:checked + label .more-check-answer-icon {
+  color: #17c4cf;
+}
