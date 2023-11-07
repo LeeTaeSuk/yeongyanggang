@@ -2,8 +2,16 @@ import React, { useState, useContext, useEffect } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { UserStateContext } from "../App";
+import axios from "axios";
 
-const Home = ({ data }) => {
+function truncateText(text, maxLength) {
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + "...";
+  }
+  return text;
+}
+
+const Home = () => {
   const userData = useContext(UserStateContext);
 
   const [user, setUser] = useState("💊 현재 가장 인기 있는 영양제");
@@ -17,6 +25,48 @@ const Home = ({ data }) => {
     }
   }, []);
 
+  // api
+  const [productInfoList, setProductInfoList] = useState([]); // 여러 개의 제품 정보를 저장하기 위한 배열
+  const apiKey = "2ee49d7b66684380b0b1";
+  const serviceId = "I0030";
+  const dataType = "xml";
+  const startIdx = "1"; // 시작 인덱스
+  const endIdx = "9"; // 종료 인덱스 (10개의 결과를 가져올 예시)
+
+  const productName = "비타민"; // 혹은 다른 검색어
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://openapi.foodsafetykorea.go.kr/api/${apiKey}/${serviceId}/${dataType}/${startIdx}/${endIdx}/PRDLST_NM=${productName}`
+      )
+      .then((response) => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(response.data, "text/xml");
+        const rows = xmlDoc.getElementsByTagName("row");
+
+        const productInfos = [];
+
+        for (let i = 0; i < rows.length; i++) {
+          const row = rows[i];
+          const productInfo = {};
+
+          for (let j = 0; j < row.children.length; j++) {
+            const child = row.children[j];
+            productInfo[child.tagName] = child.textContent;
+          }
+
+          productInfos.push(productInfo);
+          // console.log(truncateText(productInfo.LCNS_NO), 20);
+        }
+
+        setProductInfoList(productInfos);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className="Home">
       <section className="right-wrapper">
@@ -26,31 +76,35 @@ const Home = ({ data }) => {
           <div className="recommend-wrap">
             <h1 className="h1-title">{user}</h1>
             <div className="recommend-item-wrap">
-              {data &&
-                data.map((it) => {
-                  if (it.id <= 6) {
-                    return (
-                      <Link
-                        to={`/itemDetail/${it.id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        <div className="recommend-item" key={it.id}>
-                          <div className="recommend-item-top">
-                            <div className="item-img">
-                              <img
-                                src="https://via.placeholder.com/150x126"
-                                alt="샘플이미지"
-                              />
-                            </div>
-                          </div>
-                          <div className="recommend-item-bottom">
-                            <div className="item-brand">{it.co}</div>
-                            <div className="item-name">{it.name}</div>
+              {productInfoList &&
+                productInfoList.map((productInfo, index) => {
+                  // if (it.id <= 6) {
+                  return (
+                    <Link
+                      to={`/itemDetail/${productInfo.PRDLST_REPORT_NO}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div className="recommend-item" key={index}>
+                        <div className="recommend-item-top">
+                          <div className="item-img">
+                            <img
+                              src="https://via.placeholder.com/150x126"
+                              alt="샘플이미지"
+                            />
                           </div>
                         </div>
-                      </Link>
-                    );
-                  }
+                        <div className="recommend-item-bottom">
+                          <div className="item-brand">
+                            {truncateText(productInfo.BSSH_NM, 20)}
+                          </div>
+                          <div className="item-name">
+                            {truncateText(productInfo.PRDLST_NM, 30)}
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                  // }
                 })}
             </div>
           </div>

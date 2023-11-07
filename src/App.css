@@ -170,6 +170,7 @@ body {
   align-items: center;
 }
 .recommend-item {
+  width: 150px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -190,16 +191,23 @@ body {
 }
 
 .recommend-item-bottom .item-brand {
+  width: 150px;
   margin-bottom: 5px;
   color: #676767;
   font-size: 0.8rem;
   font-weight: 300;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .recommend-item-bottom .item-name {
   color: #051929;
   font-size: 1rem;
   font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* 배너 */

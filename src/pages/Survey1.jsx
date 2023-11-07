@@ -37,6 +37,7 @@ const ControlMenu = ({ value, optionList, onChange }) => {
       value={value}
       onChange={(e) => onChange(e.target.value)}
     >
+      <option value="none">선택</option>
       {optionList &&
         optionList.map((it, idx) => (
           <option key={idx} value={it.value}>
