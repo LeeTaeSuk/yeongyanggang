@@ -404,6 +404,7 @@ body {
 .check-input + label .check-input-bottom .check-des {
   font-size: 1rem;
   font-weight: 900;
+  text-align: center;
 }
 .check-input:checked + label {
   border: 1px solid #17c4cf;

@@ -41,8 +41,9 @@ const CompareItem = () => {
                   </div>
                 </div>
                 <div className="recommend-item-bottom">
-                  <div className="item-brand">{item[0].co}</div>
-                  <div className="item-name">{item[0].name}</div>
+                  <div className="item-brand">{item[0].BSSH_NM}</div>
+                  <div className="item-name">{item[0].PRDLST_NM}</div>
+                  <div className="item-brand">{item[0].RAWMTRL_NM}</div>
                 </div>
               </div>
             ) : (
@@ -62,8 +63,9 @@ const CompareItem = () => {
                   </div>
                 </div>
                 <div className="recommend-item-bottom">
-                  <div className="item-brand">{item[1].co}</div>
-                  <div className="item-name">{item[1].name}</div>
+                  <div className="item-brand">{item[1].BSSH_NM}</div>
+                  <div className="item-name">{item[1].PRDLST_NM}</div>
+                  <div className="item-brand">{item[1].RAWMTRL_NM}</div>
                 </div>
               </div>
             ) : (

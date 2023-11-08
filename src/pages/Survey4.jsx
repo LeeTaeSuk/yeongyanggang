@@ -35,52 +35,52 @@ const Survey4 = () => {
   const allergyList = [
     {
       id: 1,
-      name: "에스트로겐1",
+      name: "게",
       value: "estrogen1",
     },
     {
       id: 2,
-      name: "에스트로겐2",
+      name: "대두",
       value: "estrogen2",
     },
     {
       id: 3,
-      name: "에스트로겐3",
+      name: "꽃가루",
       value: "estrogen3",
     },
     {
       id: 4,
-      name: "에스트로겐",
+      name: "땅콩",
       value: "estrogen4",
     },
     {
       id: 5,
-      name: "에스트로겐",
+      name: "계란",
       value: "estrogen5",
     },
     {
       id: 6,
-      name: "에스트로겐",
+      name: "밀",
       value: "estrogen6",
     },
     {
       id: 7,
-      name: "에스트로겐",
+      name: "카페인",
       value: "estrogen7",
     },
     {
       id: 8,
-      name: "에스트로겐",
+      name: "유제품",
       value: "estrogen8",
     },
     {
       id: 9,
-      name: "에스트로겐",
+      name: "꿀",
       value: "estrogen9",
     },
     {
       id: 10,
-      name: "에스트로겐",
+      name: "MSG",
       value: "estrogen10",
     },
     {

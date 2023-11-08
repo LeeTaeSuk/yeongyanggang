@@ -25,56 +25,74 @@ const Survey2 = () => {
   const healthTypeList = [
     {
       id: 1,
-      img: "👀",
-      name: "눈",
+      img: "😮‍💨",
+      name: "혈중\n콜레스테롤",
       value: "eye",
     },
     {
       id: 2,
       img: "👀",
-      name: "고혈압",
+      name: "눈 건강",
       value: "eye2",
     },
     {
       id: 3,
-      img: "👀",
-      name: "간",
+      img: "😓",
+      name: "피로감",
       value: "eye3",
     },
     {
       id: 4,
-      img: "👀",
-      name: "관절",
+      img: "🫁",
+      name: "간 건강",
       value: "eye4",
     },
     {
       id: 5,
-      img: "👀",
-      name: "체지방",
+      img: "🏋️",
+      name: "운동 능력\n& 근육량",
       value: "eye5",
     },
     {
       id: 6,
-      img: "👀",
-      name: "스트레스",
+      img: "🩸",
+      name: "혈관\n& 혈액순환",
       value: "eye6",
     },
     {
       id: 7,
-      img: "👀",
-      name: "피로",
+      img: "👨‍🦲",
+      name: "탈모\n& 손톱건강",
       value: "eye7",
     },
     {
       id: 8,
-      img: "👀",
-      name: "탈모",
+      img: "🥗",
+      name: "체지방",
       value: "eye8",
     },
     {
       id: 9,
-      img: "👀",
-      name: "저체중",
+      img: "😀",
+      name: "면역 기능",
+      value: "eye9",
+    },
+    {
+      id: 10,
+      img: "💪",
+      name: "관절 건강",
+      value: "eye9",
+    },
+    {
+      id: 11,
+      img: "💩",
+      name: "장 건강",
+      value: "eye9",
+    },
+    {
+      id: 12,
+      img: "😫",
+      name: "스트레스\n& 수면",
       value: "eye9",
     },
   ];
@@ -125,7 +143,14 @@ const Survey2 = () => {
                       </div>
                       <div className="check-input-bottom">
                         <div className="check-img">{it.img}</div>
-                        <div className="check-des">{it.name}</div>
+                        <div className="check-des">
+                          {it.name.split("\n").map((txt) => (
+                            <>
+                              {txt}
+                              <br />
+                            </>
+                          ))}
+                        </div>
                       </div>
                     </label>
                   </>

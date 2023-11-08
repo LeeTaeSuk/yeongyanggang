@@ -1,21 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
-import { UserStateContext } from "../App";
-import axios from "axios";
-
-function truncateText(text, maxLength) {
-  if (text.length > maxLength) {
-    return text.slice(0, maxLength) + "...";
-  }
-  return text;
-}
+import { ProductInfoStateContext, UserStateContext } from "../App";
 
 const Home = () => {
   const userData = useContext(UserStateContext);
+  const productInfoList = useContext(ProductInfoStateContext);
 
   const [user, setUser] = useState("💊 현재 가장 인기 있는 영양제");
 
+  console.log(productInfoList);
   useEffect(() => {
     console.log(userData);
     if (userData.name) {
@@ -25,47 +19,49 @@ const Home = () => {
     }
   }, []);
 
-  // api
-  const [productInfoList, setProductInfoList] = useState([]); // 여러 개의 제품 정보를 저장하기 위한 배열
-  const apiKey = "2ee49d7b66684380b0b1";
-  const serviceId = "I0030";
-  const dataType = "xml";
-  const startIdx = "1"; // 시작 인덱스
-  const endIdx = "9"; // 종료 인덱스 (10개의 결과를 가져올 예시)
+  const limitedProductInfoList = productInfoList.slice(0, 9);
 
-  const productName = "비타민"; // 혹은 다른 검색어
+  // // api
+  // const [productInfoList, setProductInfoList] = useState([]); // 여러 개의 제품 정보를 저장하기 위한 배열
+  // const apiKey = "2ee49d7b66684380b0b1";
+  // const serviceId = "I0030";
+  // const dataType = "xml";
+  // const startIdx = "1"; // 시작 인덱스
+  // const endIdx = "9"; // 종료 인덱스 (10개의 결과를 가져올 예시)
 
-  useEffect(() => {
-    axios
-      .get(
-        `http://openapi.foodsafetykorea.go.kr/api/${apiKey}/${serviceId}/${dataType}/${startIdx}/${endIdx}/PRDLST_NM=${productName}`
-      )
-      .then((response) => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(response.data, "text/xml");
-        const rows = xmlDoc.getElementsByTagName("row");
+  // const productName = "비타민"; // 혹은 다른 검색어
 
-        const productInfos = [];
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `http://openapi.foodsafetykorea.go.kr/api/${apiKey}/${serviceId}/${dataType}/${startIdx}/${endIdx}/PRDLST_NM=${productName}`
+  //     )
+  //     .then((response) => {
+  //       const parser = new DOMParser();
+  //       const xmlDoc = parser.parseFromString(response.data, "text/xml");
+  //       const rows = xmlDoc.getElementsByTagName("row");
 
-        for (let i = 0; i < rows.length; i++) {
-          const row = rows[i];
-          const productInfo = {};
+  //       const productInfos = [];
 
-          for (let j = 0; j < row.children.length; j++) {
-            const child = row.children[j];
-            productInfo[child.tagName] = child.textContent;
-          }
+  //       for (let i = 0; i < rows.length; i++) {
+  //         const row = rows[i];
+  //         const productInfo = {};
 
-          productInfos.push(productInfo);
-          // console.log(truncateText(productInfo.LCNS_NO), 20);
-        }
+  //         for (let j = 0; j < row.children.length; j++) {
+  //           const child = row.children[j];
+  //           productInfo[child.tagName] = child.textContent;
+  //         }
 
-        setProductInfoList(productInfos);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+  //         productInfos.push(productInfo);
+  //         // console.log(truncateText(productInfo.LCNS_NO), 20);
+  //       }
+
+  //       setProductInfoList(productInfos);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
 
   return (
     <div className="Home">
@@ -76,9 +72,9 @@ const Home = () => {
           <div className="recommend-wrap">
             <h1 className="h1-title">{user}</h1>
             <div className="recommend-item-wrap">
-              {productInfoList &&
-                productInfoList.map((productInfo, index) => {
-                  // if (it.id <= 6) {
+              {limitedProductInfoList &&
+                limitedProductInfoList.map((productInfo, index) => {
+                  // if (productInfo.row <= 6) {
                   return (
                     <Link
                       to={`/itemDetail/${productInfo.PRDLST_REPORT_NO}`}
@@ -95,10 +91,13 @@ const Home = () => {
                         </div>
                         <div className="recommend-item-bottom">
                           <div className="item-brand">
-                            {truncateText(productInfo.BSSH_NM, 20)}
+                            {productInfo.BSSH_NM}
+                            {/* {truncateText(productInfo.BSSH_NM, 20)} */}
                           </div>
                           <div className="item-name">
-                            {truncateText(productInfo.PRDLST_NM, 30)}
+                            {productInfo.PRDLST_NM}
+
+                            {/* {truncateText(productInfo.PRDLST_NM, 30)} */}
                           </div>
                         </div>
                       </div>

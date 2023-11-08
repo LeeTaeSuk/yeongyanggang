@@ -35,57 +35,62 @@ const Survey5 = () => {
   const dieseaseList = [
     {
       id: 1,
-      name: "에스트로겐1",
+      name: "대장암",
       value: "estrogen1",
     },
     {
       id: 2,
-      name: "에스트로겐2",
+      name: "간암",
       value: "estrogen2",
     },
     {
       id: 3,
-      name: "에스트로겐3",
+      name: "당뇨",
       value: "estrogen3",
     },
     {
       id: 4,
-      name: "에스트로겐",
+      name: "고혈압",
       value: "estrogen4",
     },
     {
       id: 5,
-      name: "에스트로겐",
+      name: "고지혈증(콜레스테롤)",
       value: "estrogen5",
     },
     {
       id: 6,
-      name: "에스트로겐",
+      name: "과체중 & 비만",
       value: "estrogen6",
     },
     {
       id: 7,
-      name: "에스트로겐",
+      name: "저체중",
       value: "estrogen7",
     },
     {
       id: 8,
-      name: "에스트로겐",
+      name: "변비",
       value: "estrogen8",
     },
     {
       id: 9,
-      name: "에스트로겐",
+      name: "대장질환",
       value: "estrogen9",
     },
     {
       id: 10,
-      name: "에스트로겐",
+      name: "위장질환",
       value: "estrogen10",
     },
     {
       id: 11,
-      name: "에스트로겐",
+      name: "비타민 D 부족",
+      value: "estrogen11",
+    },
+    {
+      id: 12,
+      name: "위암",
       value: "estrogen11",
     },
   ];
