@@ -101,11 +101,16 @@ function App() {
   };
 
   // 비교 아이템 생성
-  const onCompareItemCreate = (LCNS_NO, BSSH_NM, PRDLST_NM, RAWMTRL_NM) => {
+  const onCompareItemCreate = (
+    PRDLST_REPORT_NO,
+    BSSH_NM,
+    PRDLST_NM,
+    RAWMTRL_NM
+  ) => {
     compareItemDispatch({
       type: "COMPARE_ITEM_CREATE",
       compareItem: {
-        LCNS_NO,
+        PRDLST_REPORT_NO,
         BSSH_NM,
         PRDLST_NM,
         RAWMTRL_NM,
@@ -120,7 +125,7 @@ function App() {
     });
   };
 
-  console.log(productInfoList);
+  // console.log(productInfoList);
 
   return (
     <div className="App">

@@ -14,7 +14,7 @@ const Title = () => {
             영양갱에 대해 <br />더 알아보기
           </div>
           <div className="service-qr">
-            <img src="https://via.placeholder.com/60x60" alt="샘플이미지"></img>
+            <img src="image/qrcode.svg" alt="샘플이미지"></img>
           </div>
         </div>
       </section>

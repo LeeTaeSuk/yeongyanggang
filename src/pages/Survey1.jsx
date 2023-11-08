@@ -47,7 +47,6 @@ const ControlMenu = ({ value, optionList, onChange }) => {
     </select>
   );
 };
-
 const Survey1 = () => {
   const [name, setName] = useState("");
   const [birthYear, setBirthYear] = useState("");
@@ -59,11 +58,29 @@ const Survey1 = () => {
   const navigate = useNavigate();
 
   const handleUserData = () => {
-    if (birthYear && birthMonth && gender) {
+    if (name && birthYear && birthMonth && birthDay && gender) {
       onUserCreate(name, birthYear, birthMonth, birthDay, gender);
       navigate("/survey2");
     }
   };
+  // 개별 속성에 액세스
+
+  useEffect(() => {
+    const userData = JSON.parse(window.localStorage.getItem("user"));
+    const newUserData = {
+      name: name,
+      birthYear: birthYear,
+      birthMonth: birthMonth,
+      birthDay: birthDay,
+      gender: gender,
+    };
+    if (name && birthYear && birthMonth && birthDay && gender) {
+      window.localStorage.setItem(
+        "user",
+        JSON.stringify([...(userData || []), newUserData])
+      );
+    }
+  }, [name, birthYear, birthMonth, birthDay, gender]);
 
   return (
     <div className="Survey">
@@ -131,7 +148,11 @@ const Survey1 = () => {
           <Button
             text={"다음으로"}
             type={"survey"}
-            state={birthYear && birthMonth && gender ? "active" : "disabled"}
+            state={
+              name && birthYear && birthMonth && birthDay && gender
+                ? "active"
+                : "disabled"
+            }
             onClick={handleUserData}
           />
         </div>

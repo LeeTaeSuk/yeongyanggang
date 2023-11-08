@@ -2,6 +2,9 @@ import React, { useState, useContext, useEffect } from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 import { ProductInfoStateContext, UserStateContext } from "../App";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const Home = () => {
   const userData = useContext(UserStateContext);
@@ -9,7 +12,11 @@ const Home = () => {
 
   const [user, setUser] = useState("💊 현재 가장 인기 있는 영양제");
 
-  console.log(productInfoList);
+  console.log(
+    productInfoList.forEach((e) => {
+      console.log(e.PRDLST_REPORT_NO);
+    })
+  );
   useEffect(() => {
     console.log(userData);
     if (userData.name) {
@@ -20,55 +27,64 @@ const Home = () => {
   }, []);
 
   const limitedProductInfoList = productInfoList.slice(0, 9);
-
-  // // api
-  // const [productInfoList, setProductInfoList] = useState([]); // 여러 개의 제품 정보를 저장하기 위한 배열
-  // const apiKey = "2ee49d7b66684380b0b1";
-  // const serviceId = "I0030";
-  // const dataType = "xml";
-  // const startIdx = "1"; // 시작 인덱스
-  // const endIdx = "9"; // 종료 인덱스 (10개의 결과를 가져올 예시)
-
-  // const productName = "비타민"; // 혹은 다른 검색어
-
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `http://openapi.foodsafetykorea.go.kr/api/${apiKey}/${serviceId}/${dataType}/${startIdx}/${endIdx}/PRDLST_NM=${productName}`
-  //     )
-  //     .then((response) => {
-  //       const parser = new DOMParser();
-  //       const xmlDoc = parser.parseFromString(response.data, "text/xml");
-  //       const rows = xmlDoc.getElementsByTagName("row");
-
-  //       const productInfos = [];
-
-  //       for (let i = 0; i < rows.length; i++) {
-  //         const row = rows[i];
-  //         const productInfo = {};
-
-  //         for (let j = 0; j < row.children.length; j++) {
-  //           const child = row.children[j];
-  //           productInfo[child.tagName] = child.textContent;
-  //         }
-
-  //         productInfos.push(productInfo);
-  //         // console.log(truncateText(productInfo.LCNS_NO), 20);
-  //       }
-
-  //       setProductInfoList(productInfos);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
+  const imagePaths = [
+    { PRDLST_REPORT_NO: "200400200072802", src: "/image/1.jpg" },
+    { PRDLST_REPORT_NO: "2018001205620", src: "/image/2.jpg" },
+    { PRDLST_REPORT_NO: "200400200061143", src: "/image/3.jpg" },
+    { PRDLST_REPORT_NO: "2022002000236", src: "/image/4.jpg" },
+    { PRDLST_REPORT_NO: "20040020014676", src: "/image/5.jpg" },
+    { PRDLST_REPORT_NO: "20040020029213", src: "/image/6.jpg" },
+    { PRDLST_REPORT_NO: "2018001217411", src: "/image/7.jpg" },
+    { PRDLST_REPORT_NO: "200400200201030", src: "/image/8.jpg" },
+    { PRDLST_REPORT_NO: "200400170061426", src: "/image/9.jpg" },
+    { PRDLST_REPORT_NO: "200400200071197", src: "/image/10.jpg" },
+    { PRDLST_REPORT_NO: "20040017025226", src: "/image/11.jpg" },
+    { PRDLST_REPORT_NO: "20040017015204", src: "/image/12.jpg" },
+  ];
+  const getImage = (productInfo) => {
+    const foundImage = imagePaths.find(
+      (e) => e.PRDLST_REPORT_NO === productInfo.PRDLST_REPORT_NO
+    );
+    return foundImage ? foundImage.src : "";
+  };
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 350,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+  };
   return (
     <div className="Home">
       <section className="right-wrapper">
         <Header title={"영양갱"} />
         <div className="contents">
-          <div className="visual-wrap"></div>
+          <div className="visual-wrap">
+            <Slider {...settings}>
+              <div className="visual-section">
+                <div className="visual-page visual-page-1">
+                  <span>여러분의 영양제 박사 영양갱이</span>
+                  <br />
+                  맞춤 영양제를 추천해 드릴게요!
+                  <div className="visual-page-icon">💊👨‍⚕️</div>
+                </div>
+              </div>
+              <div className="visual-page visual-page-2">
+                <span>혹시 아직도 영양제 못 고르셨나요?</span>
+                <br />
+                원하는 영양제끼리 한 눈에 비교해 보세요!
+                <div className="visual-page-icon">💊❔🙋‍♀️</div>
+              </div>
+              <div className="visual-page visual-page-3">
+                <span>매달 영양제 시키지 마세요!</span>
+                <br />
+                영양갱이 집 앞까지 배송해 드릴게요
+                <div className="visual-page-icon">💊🏠📦</div>
+              </div>
+            </Slider>
+          </div>
           <div className="recommend-wrap">
             <h1 className="h1-title">{user}</h1>
             <div className="recommend-item-wrap">
@@ -83,10 +99,7 @@ const Home = () => {
                       <div className="recommend-item" key={index}>
                         <div className="recommend-item-top">
                           <div className="item-img">
-                            <img
-                              src="https://via.placeholder.com/150x126"
-                              alt="샘플이미지"
-                            />
+                            <img src={getImage(productInfo)} alt="샘플이미지" />
                           </div>
                         </div>
                         <div className="recommend-item-bottom">
@@ -108,7 +121,7 @@ const Home = () => {
             </div>
           </div>
           <div className="banner-wrap">
-            <h1 className="h1-title">💪 어떤 건강을 관리하고 싶으신가요?</h1>
+            <h1 className="h1-title">💪 영양갱이랑 건강 관리 시작해요!</h1>
             <div className="banner-item-wrap">
               <div className="banner-item banner-left-wrap">
                 <Link to="/compareItem" style={{ textDecoration: "none" }}>

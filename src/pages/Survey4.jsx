@@ -83,11 +83,6 @@ const Survey4 = () => {
       name: "MSG",
       value: "estrogen10",
     },
-    {
-      id: 11,
-      name: "에스트로겐",
-      value: "estrogen11",
-    },
   ];
   return (
     <div className="Survey4">

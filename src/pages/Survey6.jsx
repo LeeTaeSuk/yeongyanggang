@@ -35,57 +35,62 @@ const Survey6 = () => {
   const medicineList = [
     {
       id: 1,
-      name: "에스트로겐1",
+      name: "혈압약",
       value: "estrogen1",
     },
     {
       id: 2,
-      name: "에스트로겐2",
+      name: "당뇨약",
       value: "estrogen2",
     },
     {
       id: 3,
-      name: "에스트로겐3",
+      name: "고지혈증약",
       value: "estrogen3",
     },
     {
       id: 4,
-      name: "에스트로겐",
+      name: "위장약",
       value: "estrogen4",
     },
     {
       id: 5,
-      name: "에스트로겐",
+      name: "변비약",
       value: "estrogen5",
     },
     {
       id: 6,
-      name: "에스트로겐",
+      name: "소화제",
       value: "estrogen6",
     },
     {
       id: 7,
-      name: "에스트로겐",
+      name: "항셍제",
       value: "estrogen7",
     },
     {
       id: 8,
-      name: "에스트로겐",
+      name: "소염진통제",
       value: "estrogen8",
     },
     {
       id: 9,
-      name: "에스트로겐",
+      name: "항히스타민제",
       value: "estrogen9",
     },
     {
       id: 10,
-      name: "에스트로겐",
+      name: "갑상선질환 치료제",
       value: "estrogen10",
     },
     {
       id: 11,
-      name: "에스트로겐",
+      name: "여드름 치료제",
+      value: "estrogen11",
+    },
+    {
+      id: 12,
+      name: "기관지  치료제",
       value: "estrogen11",
     },
   ];
