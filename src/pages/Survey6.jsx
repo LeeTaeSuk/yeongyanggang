@@ -187,12 +187,12 @@ const Survey6 = () => {
 
           <Button
             text={"다음으로"}
-            type={"survey"}
+            type={"Survey"}
             state={
               medicine === "no" ||
               (medicine === "yes" && medicineType.length >= 1)
-                ? "active"
-                : "disabled"
+                ? "Active"
+                : "Disabled"
             }
             onClick={onClick}
           />

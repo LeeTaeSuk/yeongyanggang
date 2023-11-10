@@ -108,7 +108,7 @@ const Survey2 = () => {
             />
           </div>
           <div className="survey-process-des">
-            <div className="survey-process-des-active">'3가지'</div>
+            <div>'3가지'</div>
             이상 선택해 주세요! 내게 꼭 맞는 영양제를 추천해드릴게요!
           </div>
           <div className="check-disease-wrap">
@@ -159,8 +159,8 @@ const Survey2 = () => {
           </div>
           <Button
             text={"다음으로"}
-            type={"survey"}
-            state={healthType.length >= 3 ? "active" : "disabled"}
+            type={"Survey"}
+            state={healthType.length >= 3 ? "Active" : "Disabled"}
             onClick={onClick}
           />
         </div>

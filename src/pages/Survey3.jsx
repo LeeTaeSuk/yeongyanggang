@@ -62,8 +62,8 @@ const Survey3 = () => {
 
           <Button
             text={"다음으로"}
-            type={"survey"}
-            state={smoking ? "active" : "disabled"}
+            type={"Survey"}
+            state={smoking ? "Active" : "Disabled"}
             onClick={onClick}
           />
         </div>

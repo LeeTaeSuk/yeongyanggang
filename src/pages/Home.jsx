@@ -5,6 +5,7 @@ import { ProductInfoStateContext, UserStateContext } from "../App";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import styled from "styled-components";
 
 const Home = () => {
   const userData = useContext(UserStateContext);
@@ -90,7 +91,6 @@ const Home = () => {
             <div className="recommend-item-wrap">
               {limitedProductInfoList &&
                 limitedProductInfoList.map((productInfo, index) => {
-                  // if (productInfo.row <= 6) {
                   return (
                     <Link
                       to={`/itemDetail/${productInfo.PRDLST_REPORT_NO}`}
@@ -105,18 +105,14 @@ const Home = () => {
                         <div className="recommend-item-bottom">
                           <div className="item-brand">
                             {productInfo.BSSH_NM}
-                            {/* {truncateText(productInfo.BSSH_NM, 20)} */}
                           </div>
                           <div className="item-name">
                             {productInfo.PRDLST_NM}
-
-                            {/* {truncateText(productInfo.PRDLST_NM, 30)} */}
                           </div>
                         </div>
                       </div>
                     </Link>
                   );
-                  // }
                 })}
             </div>
           </div>
@@ -152,4 +148,16 @@ const Home = () => {
 Home.defaultProps = {
   name: "💊 현재 가장 인기 있는 영양제",
 };
+
+const rightWrapper = styled.section`
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 60px;
+  padding: 0 20px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #ffffff;
+
+  color: #17c4cf;
+`;
+
 export default Home;

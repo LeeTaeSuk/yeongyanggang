@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as S from "./styles/Header.style";
 
 const Header = ({ btn, title, path }) => {
   const navigate = useNavigate();
@@ -18,21 +19,20 @@ const Header = ({ btn, title, path }) => {
   };
 
   return (
-    <div className="Header">
-      <div className="Header-wrap">
+    <S.HeaderWrap>
+      <S.HeaderContent>
         {btn && (
-          <button
-            className={["menu-btn", `menu-${btn}-btn`].join(" ")}
+          <S.menuBtn
             onClick={() => {
               handleMenuBtn(path);
             }}
           >
             {btnType(btn)}
-          </button>
+          </S.menuBtn>
         )}
-        <h2 className="header-title">{title}</h2>
-      </div>
-    </div>
+        <S.HeaderTitle>{title}</S.HeaderTitle>
+      </S.HeaderContent>
+    </S.HeaderWrap>
   );
 };
 

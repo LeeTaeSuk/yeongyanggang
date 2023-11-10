@@ -147,11 +147,11 @@ const Survey1 = () => {
           </div>
           <Button
             text={"다음으로"}
-            type={"survey"}
+            type={"Survey"}
             state={
               name && birthYear && birthMonth && birthDay && gender
-                ? "active"
-                : "disabled"
+                ? "Active"
+                : "Disabled"
             }
             onClick={handleUserData}
           />

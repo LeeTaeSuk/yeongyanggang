@@ -69,7 +69,7 @@ body {
   .right-wrapper {
     width: 100vw;
   }
-  .Header-wrap {
+  .Header-content {
     width: 100%;
   }
   .recommend-wrap {
@@ -135,7 +135,7 @@ body {
   height: 60px;
 }
 /* Header */
-.Header {
+/* .Header-wrap {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   height: 60px;
@@ -145,23 +145,24 @@ body {
 
   color: #17c4cf;
 }
-.Header-wrap {
+.Header-content {
   display: flex;
   align-items: center;
   width: 520px;
   height: 100%;
   margin: 0 auto;
-}
-.Header .menu-btn {
+} */
+/* .menu-btn {
   margin-right: 10px;
   border: none;
   background: none;
   color: #17c4cf;
   cursor: pointer;
-}
-.Header .menu-prev-btn {
   font-size: 1.25rem;
 }
+.menu-prev-btn {
+  font-size: 1.25rem;
+} */
 /* Home */
 .contents {
   /* width: 520px; */
@@ -328,7 +329,7 @@ body {
   cursor: pointer;
 }
 /* surveyTitle */
-.survey-process {
+/* .survey-process {
   margin-bottom: 20px;
   color: #d9d9d9;
 }
@@ -337,7 +338,7 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   color: #17c4cf;
-}
+} */
 
 /* survey */
 .right-wrapper-survey {
@@ -433,7 +434,7 @@ body {
   font-size: 1rem;
   margin-bottom: 20px;
 }
-.survey-process-des-active {
+.survey-process-des > div {
   display: inline-block;
   color: #17c4cf;
   font-size: 1.25rem;

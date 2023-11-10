@@ -1,16 +1,18 @@
 import React from "react";
+import * as S from "./styles/Button.style";
+
 const Button = ({ text, type, state, onClick }) => {
   return (
-    <div className="Button">
-      <button
-        className={["button", `${type}-button`, `${type}-button-${state}`].join(
+    <S.ButtonContainer>
+      <S.StyledButton
+        className={["Button", `${type}Button`, `${type}Button${state}`].join(
           " "
         )}
         onClick={onClick}
       >
         {text}
-      </button>
-    </div>
+      </S.StyledButton>
+    </S.ButtonContainer>
   );
 };
 

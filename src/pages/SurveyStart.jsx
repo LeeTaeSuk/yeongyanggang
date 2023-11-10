@@ -35,8 +35,8 @@ const SurveyStart = () => {
           </div>
           <Button
             text={"시작하기"}
-            type={"survey"}
-            state={"active"}
+            type={"Survey"}
+            state={"Active"}
             onClick={onClick}
           />
         </div>

@@ -177,11 +177,11 @@ const Survey4 = () => {
 
           <Button
             text={"다음으로"}
-            type={"survey"}
+            type={"Survey"}
             state={
               allergy === "no" || (allergy === "yes" && allergyType.length >= 1)
-                ? "active"
-                : "disabled"
+                ? "Active"
+                : "Disabled"
             }
             onClick={onClick}
           />
