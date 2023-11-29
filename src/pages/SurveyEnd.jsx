@@ -23,8 +23,8 @@ const SurveyEnd = () => {
           </div>
           <Button
             text={"메인 화면으로 가기"}
-            type={"survey"}
-            state={"active"}
+            type={"Survey"}
+            state={"Active"}
             onClick={onClick}
           />
         </div>

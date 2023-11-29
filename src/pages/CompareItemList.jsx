@@ -95,8 +95,8 @@ const CompareItemList = () => {
           </div>
           <Button
             text={"선택하기"}
-            type={"survey"}
-            state={"active"}
+            type={"Survey"}
+            state={clickItem ? "Active" : "Disabled"}
             onClick={handleSelection}
           />
         </div>

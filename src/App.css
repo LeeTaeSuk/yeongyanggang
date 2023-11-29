@@ -164,19 +164,20 @@ body {
   font-size: 1.25rem;
 } */
 /* Home */
+/*
 .contents {
-  /* width: 520px; */
   height: calc(100vh - 60px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 .contents::-webkit-scrollbar {
   display: none;
 }
+*/
 /* 비주얼 */
+/*
 .visual-wrap {
-  /* width: 100%; */
-  /* margin-left: calc(-50vw + 50%); */
   height: 180px;
   margin-top: 20px;
   margin-bottom: 50px;
@@ -184,7 +185,6 @@ body {
   background-color: rgb(211, 211, 211);
 }
 .slick-slider {
-  /* width: 100%; */
   height: 100%;
   border-radius: 20px;
 }
@@ -222,11 +222,8 @@ body {
   margin: 20px;
   font-size: 3rem;
 }
+*/
 /* 추천 */
-.recommend-wrap {
-  margin-bottom: 20px;
-}
-
 .recommend-item-wrap,
 .compare-item-wrap {
   display: flex;
@@ -243,6 +240,11 @@ body {
 .compare-item-wrap::-webkit-scrollbar {
   display: none;
 }
+/*
+.recommend-wrap {
+  margin-bottom: 20px;
+}
+
 .recommend-item {
   width: 150px;
   flex-grow: 1;
@@ -286,8 +288,9 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
-
+*/
 /* 배너 */
+/*
 .banner-wrap {
   margin-bottom: 50px;
 }
@@ -318,7 +321,7 @@ body {
   flex-grow: 1;
   background: #17cf74;
 }
-
+*/
 /* button */
 .button {
   padding: 15px;
@@ -361,7 +364,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.Button {
+/* .Button {
   position: absolute;
   bottom: -5vh;
   width: 100%;
@@ -377,7 +380,7 @@ body {
 }
 .survey-button-disabled {
   background-color: #d9d9d9;
-}
+} */
 /* survey1 */
 .input-wrap {
   display: flex;
