@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+### [2023] 영양갱 프로젝트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<hr>
 
-## Available Scripts
+# 사용자 맞춤 영양제 추천 웹 서비스 프로젝트
 
-In the project directory, you can run:
+## 목차
 
-### `npm start`
+    - [개요] (#개요)
+    - [영양갱이란?] (#영양갱이란?)
+    - [영양갱 탄생 배경] (#영양갱 탄생 배경)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 개요
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 프로젝트 이름
+- 제작 기간
+- 개발 언어
+- 멤버
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 영양갱이란?
 
-### `npm run build`
+사용자에게 딱 맞는 영양제 추천 뿐만이 아니라 쉽고 간편하게 구매할 수 있고, 구매한 영양제를 구독하여서 매달 받을 수 있는 서비스입니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 영양갱 탄생 배경
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+😟 영양제의 정보가 너무 많아서 어떤것을 골라야할지 모르겠어요<br>
+🧐 영양제 제품끼리 비교를 해서 합리적인 소비를 하고 싶어요!<br>
+😊 저의 건강과 관련된 고민에 대해 영양제로 고치고 싶어요!<br>
+🤨 제가 먹은 영양제와 음식의 영양 성분과 같이 할당량을 채우고 싶어요!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+현대인들은 고열량 식품과 가공식품을 선호하는 반면에 이러한 식품들은 열량이 높고 영양소는 부족하여 열량은 과잉되고, 영양은 부족한 상태가 이어지고 있습니다. 이처럼 영양부족으로 인한 건강 악화를 방지하고 각 사용자에게 필요한 영양제 정보 제공을 목표로 기획하게 되었습니다.
